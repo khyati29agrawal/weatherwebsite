@@ -19,15 +19,25 @@ app.use(express.static(dir))
 //register partials
 app.get('', (req, res) => {
     res.render('index', {
-        title:'khyati'
-    })
+        title: 'Weather',
+        name: 'Khyati Agrawal'    })
 })
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'about'
+        title: 'About Me',
+        name: 'Khyati Agrawal'
 
     })
 })
+app.get('/help', (req, res) => {
+    res.render('about', {
+        helpText: 'This is some helpful text.',
+        title: 'Help',
+        name: 'Khyati Agrawal'
+
+    })
+})
+
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({ error: "you must provide the address" })
