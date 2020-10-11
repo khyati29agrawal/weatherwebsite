@@ -2,6 +2,7 @@ const path=require('path')
 const express = require('express')
 const hbs = require('hbs')
 const app = express()
+const port = process.env.PORT || 3000
 const geocode = require('./utils/geocode')
 const forecaste = require('./utils/forecaste')
 //define path for Express Config
@@ -30,7 +31,7 @@ app.get('/about', (req, res) => {
     })
 })
 app.get('/help', (req, res) => {
-    res.render('about', {
+    res.render('help', {
         helpText: 'This is some helpful text.',
         title: 'Help',
         name: 'Khyati Agrawal'
@@ -70,6 +71,6 @@ app.get('*', (req, res) => {
     })
 }
     )
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('server start')
 })
